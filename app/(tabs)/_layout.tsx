@@ -7,6 +7,7 @@ import { useColorScheme } from "@/hooks/use-color-scheme";
 import { Icon } from "@/components/ui/icon";
 import { Info } from "lucide-react-native";
 import { House } from "lucide-react-native";
+import { NotebookText } from "lucide-react-native";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -24,6 +25,16 @@ export default function TabLayout() {
           title: "Home",
           tabBarIcon: ({ color }) => (
             <Icon as={House} size="md" color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="zod-val"
+        options={{
+          title: "Zod-Val",
+          tabBarIcon: ({ color }) => (
+            <Icon as={NotebookText} size="md" color={color} />
           ),
         }}
       />

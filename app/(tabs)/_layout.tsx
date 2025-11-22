@@ -4,6 +4,9 @@ import React from "react";
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import { Colors } from "@/constants/theme";
 import { useColorScheme } from "@/hooks/use-color-scheme";
+import { Icon } from "@/components/ui/icon";
+import { Info } from "lucide-react-native";
+import { House } from "lucide-react-native";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -12,7 +15,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-        headerShown: false,
+        headerShown: true,
       }}
     >
       <Tabs.Screen
@@ -20,8 +23,16 @@ export default function TabLayout() {
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="house.fill" color={color} />
+            <Icon as={House} size="md" color={color} />
           ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="about"
+        options={{
+          title: "About",
+          tabBarIcon: ({ color }) => <Icon as={Info} size="md" color={color} />,
         }}
       />
     </Tabs>
